@@ -2,12 +2,11 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import Route from './pages/route';
 
 function App() {
   return (
-    <>
-      hello there!
-    </>
+    <Route />
   )
 }
 
