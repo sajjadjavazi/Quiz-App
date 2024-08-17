@@ -60,7 +60,8 @@ quizmaster/
 ├── package.json                # Project metadata and dependencies
 ├── README.md                   # Project documentation
 ├── tsconfig.json               # TypeScript configuration
-└── ...                         # Other configuration files (e.g., ESLint, Prettier)```
+└── ...                         # Other configuration files (e.g., ESLint, Prettier)
+```
 
 ## 📜 License
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/sajjadjavazi/Quiz-App/blob/master/LICENSE "LICENSE") file for details.
