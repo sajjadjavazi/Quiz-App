@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Typography, Button, LinearProgress } from "@mui/material";
 import QuizContext from '../../context/QuizContext';
@@ -6,9 +6,18 @@ import QuizContext from '../../context/QuizContext';
 const QuizPage = () => {
     const { state, dispatch } = useContext(QuizContext);
     const navigate = useNavigate();
+
     const currentQuestion = state.questions[state.currentQuestionIndex];
 
-    const handleAnswer = (isCorrect: boolean) => {
+    const answers = useMemo(() => {
+        if (!currentQuestion) return [];
+        const allAnswers = [...currentQuestion.incorrect_answers, currentQuestion.correct_answer];
+        return allAnswers.sort(() => Math.random() - 0.5);
+    }, [currentQuestion]);
+
+    const handleAnswer = (selectedAnswer: string) => {
+        const isCorrect = selectedAnswer === currentQuestion.correct_answer;
+
         if (isCorrect) {
             dispatch({ type: 'INCREMENT_SCORE' });
         }
@@ -20,6 +29,14 @@ const QuizPage = () => {
             navigate('/score');
         }
     };
+
+    if (!currentQuestion) {
+        return (
+            <Box sx={{ textAlign: 'center', marginTop: '100px' }}>
+                <Typography variant="h5">Loading...</Typography>
+            </Box>
+        );
+    }
 
     return (
         <Box sx={{ marginTop: '70px', padding: '20px' }}>
@@ -36,13 +53,13 @@ const QuizPage = () => {
                     <Typography variant="h6" sx={{ margin: '20px 0' }}>
                         {currentQuestion.question}
                     </Typography>
-                    {currentQuestion.answers.map((answer: string, index: number) => (
+                    {answers.map((answer, index) => (
                         <Button
                             key={index}
                             variant="contained"
                             color="primary"
                             sx={{ marginBottom: '10px', width: '200px' }}
-                            onClick={() => handleAnswer(answer === currentQuestion.correctAnswer)}
+                            onClick={() => handleAnswer(answer)}
                         >
                             {answer}
                         </Button>
