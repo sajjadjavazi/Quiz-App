@@ -1,11 +1,24 @@
-import Layout from '../layout/layout';
-import Start from './Start page/Start';
-const Route = () => {
-    return (
-        <Layout>
-            <Start />
-        </Layout>
-    );
-}
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Layout from "../layout/layout";
+import StartPage from "./Start page/StartPage";
+import SetupPage from "./Setup page/SetupPage";
+import QuizPage from "./Quiz page/QuizPage";
+import ScorePage from "./Score page/ScorePage";
 
-export default Route;
+const AppRouter = () => {
+    return (
+        <Router>
+            <Layout>
+                <Routes>
+                    <Route path="/" element={<StartPage />} />
+                    <Route path="/setup" element={<SetupPage />} />
+                    <Route path="/quiz" element={<QuizPage />} />
+                    <Route path="/score" element={<ScorePage />} />
+                </Routes>
+            </Layout>
+        </Router>
+    );
+};
+
+export default AppRouter;
+
