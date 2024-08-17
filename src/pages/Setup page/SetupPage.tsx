@@ -11,7 +11,7 @@ const SetupPage = () => {
     const [category, setCategory] = useState('');
     const [difficulty, setDifficulty] = useState('');
     const [numberOfQuestions, setNumberOfQuestions] = useState(1);
-    const [loading, setLoading] = useState(false);
+    const [loading] = useState(false);
     const [error, setError] = useState('');
 
     const handleStartQuiz = async () => {
