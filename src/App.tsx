@@ -7,14 +7,14 @@ const theme = createTheme({
             main: '#6a1b9a', // Purple
         },
         secondary: {
-            main: '#ff4081', // Pink (example)
+            main: '#ff4081',
         },
         background: {
             default: '#f4f4f9', // Light grey background
         },
     },
     typography: {
-        fontFamily: 'Roboto, Arial, sans-serif', // Custom font
+        fontFamily: 'Roboto, Arial, sans-serif',
     },
 });
 
