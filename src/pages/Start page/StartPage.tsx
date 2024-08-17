@@ -14,7 +14,7 @@ const StartPage = () => {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            height:'84vh',
+            height: '84vh',
             background: 'linear-gradient(135deg, #f3e7e9 0%, #e3eeff 100%)',
         }}>
             <Typography variant="h3" sx={{ marginBottom: '20px' }}>
