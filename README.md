@@ -5,13 +5,13 @@ Welcome to QuizMaster—where curiosity meets competition! Whether you're a triv
 QuizMaster is a dynamic and engaging quiz app that lets you explore a wide range of topics while challenging yourself with questions of varying difficulty. Choose your category, set the difficulty, and decide how many questions you want to tackle. Then, let the quiz begin!
 
 ### Categories:
-🌍 General Knowledge: Think you know it all? From history to pop culture, this category covers a bit of everything!
-🔬 Science: Dive into the world of atoms, galaxies, and everything in between. Perfect for the curious minds who love to understand how the world works.
-📜 History: Travel back in time and see how well you know the events and people that shaped our world.
+🌍 General Knowledge: Think you know it all? From history to pop culture, this category covers a bit of everything!<br />
+🔬 Science: Dive into the world of atoms, galaxies, and everything in between. Perfect for the curious minds who love to understand how the world works.<br />
+📜 History: Travel back in time and see how well you know the events and people that shaped our world.<br />
 ### Difficulty Levels:
-😅 Easy: Great for warming up your brain!
-😬 Medium: A bit of a challenge, but nothing you can’t handle.
-😱 Hard: Only the brave dare enter this territory. Are you up for it?
+😅 Easy: Great for warming up your brain! <br />
+😬 Medium: A bit of a challenge, but nothing you can’t handle.<br />
+😱 Hard: Only the brave dare enter this territory. Are you up for it?<br />
 
 
 ## 🛠️ Built With
