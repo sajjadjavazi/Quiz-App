@@ -9,7 +9,7 @@ const ScorePage = () => {
 
     const handleRetry = () => {
         dispatch({ type: 'RESET' });
-        navigate('/setup');
+        navigate('/');
     };
 
     return (
