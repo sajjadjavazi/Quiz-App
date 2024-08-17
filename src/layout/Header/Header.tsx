@@ -14,7 +14,7 @@ const Header = () => {
             boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
             zIndex: 1000,
         }}>
-            <Typography variant="h4">Quiz App</Typography>
+            <Typography variant="h4">Quiz Master</Typography>
         </Box>
     );
 }
