@@ -1,16 +1,14 @@
 import React, { createContext, useReducer, ReactNode } from 'react';
 
-// Define the type for the state
 type QuizState = {
     category: string;
     difficulty: string;
     numberOfQuestions: number;
-    questions: any[]; // Adjust type as per your API response
+    questions: any[];
     currentQuestionIndex: number;
     score: number;
 };
 
-// Define the type for the actions
 type Action =
     | { type: 'SET_CATEGORY'; payload: string }
     | { type: 'SET_DIFFICULTY'; payload: string }
@@ -20,7 +18,6 @@ type Action =
     | { type: 'INCREMENT_SCORE' }
     | { type: 'RESET' };
 
-// Define the initial state
 const initialState: QuizState = {
     category: '',
     difficulty: '',
@@ -30,7 +27,6 @@ const initialState: QuizState = {
     score: 0,
 };
 
-// Create the reducer function
 const quizReducer = (state: QuizState, action: Action): QuizState => {
     switch (action.type) {
         case 'SET_CATEGORY':
@@ -52,7 +48,6 @@ const quizReducer = (state: QuizState, action: Action): QuizState => {
     }
 };
 
-// Create the context
 const QuizContext = createContext<{
     state: QuizState;
     dispatch: React.Dispatch<Action>;
@@ -61,7 +56,6 @@ const QuizContext = createContext<{
     dispatch: () => null,
 });
 
-// Create a provider component
 export const QuizProvider = ({ children }: { children: ReactNode }) => {
     const [state, dispatch] = useReducer(quizReducer, initialState);
 
