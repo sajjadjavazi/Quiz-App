@@ -1,27 +1,36 @@
 import { useContext, useState } from 'react';
+import { Box, Card, CardContent, FormControl, InputLabel, MenuItem, Select, Typography, Button, Slider, CircularProgress } from "@mui/material";
 import { useNavigate } from 'react-router-dom';
-import { Box, Card, CardContent, FormControl, InputLabel, MenuItem, Select, Typography, Button, Slider } from "@mui/material";
+import { getApiUrl } from '../../utils/apiUrls';
 import QuizContext from '../../context/QuizContext';
 
 const SetupPage = () => {
+    const { dispatch } = useContext(QuizContext);
     const navigate = useNavigate();
-    const { state, dispatch } = useContext(QuizContext);
-    const [category, setCategory] = useState(state.category);
-    const [difficulty, setDifficulty] = useState(state.difficulty);
-    const [numberOfQuestions, setNumberOfQuestions] = useState(state.numberOfQuestions);
+
+    const [category, setCategory] = useState('');
+    const [difficulty, setDifficulty] = useState('');
+    const [numberOfQuestions, setNumberOfQuestions] = useState(1);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     const handleStartQuiz = async () => {
-        const apiUrl = `https://example.com/api/${category}/${difficulty}?limit=${numberOfQuestions}`;
-        
-        const response = await fetch(apiUrl);
-        const data = await response.json();
+        if (category && difficulty) {
+            const apiUrl = getApiUrl(category, difficulty, numberOfQuestions);
+            const response = await fetch(apiUrl);
+            const data = await response.json();
 
-        dispatch({ type: 'SET_QUESTIONS', payload: data.questions });
-        dispatch({ type: 'SET_CATEGORY', payload: category });
-        dispatch({ type: 'SET_DIFFICULTY', payload: difficulty });
-        dispatch({ type: 'SET_NUMBER_OF_QUESTIONS', payload: numberOfQuestions });
-        
-        navigate('/quiz');
+            if (data.response_code === 0) {
+                dispatch({ type: 'SET_QUESTIONS', payload: data.results });
+                dispatch({ type: 'SET_CATEGORY', payload: category });
+                dispatch({ type: 'SET_DIFFICULTY', payload: difficulty });
+                dispatch({ type: 'SET_NUMBER_OF_QUESTIONS', payload: numberOfQuestions });
+
+                navigate('/quiz');
+            } else {
+                setError('No questions found for the selected category and difficulty.');
+            }
+        }
     };
 
     return (
@@ -33,7 +42,7 @@ const SetupPage = () => {
                         <InputLabel>Category</InputLabel>
                         <Select
                             value={category}
-                            onChange={(e) => setCategory(e.target.value as string)}
+                            onChange={(e) => setCategory(e.target.value)}
                             label="Category"
                         >
                             <MenuItem value="general">General Knowledge</MenuItem>
@@ -45,7 +54,7 @@ const SetupPage = () => {
                         <InputLabel>Difficulty</InputLabel>
                         <Select
                             value={difficulty}
-                            onChange={(e) => setDifficulty(e.target.value as string)}
+                            onChange={(e) => setDifficulty(e.target.value)}
                             label="Difficulty"
                         >
                             <MenuItem value="easy">Easy</MenuItem>
@@ -53,19 +62,27 @@ const SetupPage = () => {
                             <MenuItem value="hard">Hard</MenuItem>
                         </Select>
                     </FormControl>
-                    <InputLabel>Number of Questions:</InputLabel>
+                    <InputLabel>Number of questions:</InputLabel>
                     <Slider
-                        value={numberOfQuestions}
-                        onChange={(e, value) => setNumberOfQuestions(value as number)}
-                        min={5}
-                        max={50}
+                        defaultValue={5}
+                        min={1}
+                        max={10}
                         aria-label="Default"
                         valueLabelDisplay="auto"
+                        value={numberOfQuestions}
+                        onChange={(_e, newValue) => setNumberOfQuestions(newValue as number)}
                         sx={{ marginBottom: '20px' }}
                     />
-                    <Button variant="contained" color="primary" fullWidth onClick={handleStartQuiz}>
-                        Start Quiz
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        fullWidth
+                        onClick={handleStartQuiz}
+                        disabled={loading}
+                    >
+                        {loading ? <CircularProgress size={24} /> : 'Start Quiz'}
                     </Button>
+                    {error && <Typography color="error">{error}</Typography>}
                 </CardContent>
             </Card>
         </Box>
