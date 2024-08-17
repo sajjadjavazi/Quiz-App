@@ -10,7 +10,7 @@ const Layout = ({ children }: props) => {
     return (
         <>
             <Header />
-            <Box sx={{ mt: '61px', mb:'50px' }}>
+            <Box sx={{ mt: '61px', mb: '50px' }}>
                 {children}
             </Box>
             <Footer />
