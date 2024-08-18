@@ -1,5 +1,11 @@
-# 🎉 QuizMaster: Test Your Knowledge! 🌟 | Demo
+# 🎉 QuizMaster: Test Your Knowledge! 🌟
 Welcome to QuizMaster—where curiosity meets competition! Whether you're a trivia whiz, a lifelong learner, or just looking for a fun way to challenge yourself, QuizMaster is here to put your knowledge to the test. Buckle up and dive into a world of questions that will tease your brain, tickle your curiosity, and maybe even teach you a thing or two!
+
+## 🎥 Video Demo
+We’ve put together a video demonstration to showcase how our app works in action. If you’d like to see the app’s functionality, user interface, and overall experience in real-time, please check out the video demo linked below:
+
+[Watch the Video Demo](https://drive.google.com/file/d/12AkkG-30y-oPY8rVDPcOrCp7XZzJKYSC/view?usp=sharing "Watch the Video Demo")
+
 
 ## 🧠 What is QuizMaster?
 QuizMaster is a dynamic and engaging quiz app that lets you explore a wide range of topics while challenging yourself with questions of varying difficulty. Choose your category, set the difficulty, and decide how many questions you want to tackle. Then, let the quiz begin!
