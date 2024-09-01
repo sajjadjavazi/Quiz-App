@@ -21,12 +21,18 @@ QuizMaster is a dynamic and engaging quiz app that lets you explore a wide range
 
 
 ## 🛠️ Built With
-React - The core library that powers the UI.
-TypeScript - For a safer and more efficient coding experience.
-Material-UI - For the sleek and modern design elements.
-React Router - For smooth and intuitive navigation between pages.
-Context API & useReducer - To manage the app's state like a pro.
-Open Trivia Database - The source of all the brain-teasing questions.
+React - The core library that powers the UI.<br />
+TypeScript - For a safer and more efficient coding experience.<br />
+Material-UI - For the sleek and modern design elements.<br />
+React Router - For smooth and intuitive navigation between pages.<br />
+Context API & useReducer - To manage the app's state like a pro.<br />
+Open Trivia Database - The source of all the brain-teasing questions.<br />
+ <p align="left">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=react,js,ts,html,vite,mui,github,git,vscode,npm&theme=dark" />
+  </a>
+</p>
+
 ## 🌟 Features
 Customizable Quizzes: Choose your category, difficulty, and number of questions to tailor your quiz experience.
 Real-time Scoring: See how well you're doing as you progress through the quiz.
